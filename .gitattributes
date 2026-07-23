@@ -1,0 +1,2 @@
+libs.zip filter=lfs diff=lfs merge=lfs -text
+library.zip filter=lfs diff=lfs merge=lfs -text
