@@ -1,0 +1,35 @@
+from enum import Enum
+
+class LossType(Enum):
+    Pressure = 1
+    Enthalpy = 2
+    Entropy = 3
+    Polytropic = 4
+
+class RowType(Enum):
+    # Similar to a stator but for compressor calculations there is no Total Pressure rise
+    IGV = 0
+    Stator = 1
+    Rotor = 2
+    CounterRotating = 2
+    Inlet = 3
+    Outlet = 4
+
+class PowerType(Enum):
+    """The code for BladeRow will assume a PowerType automatically depending on what you specify. If you specify the blade row to have P0_P which is the stator inlet total pressure to rotor exit static pressure then that will be used to calculate all the quantities.
+    
+    Or if you specify the power for the blade row, the Total Temperature at Rotor Exit will change. 
+    
+    P0_P: Assumes a Total-Static Pressure Ratio. Using this method will not allow you to match a particular massflow 
+    
+    T0: Total Temperature at exit is specified based on power required
+    
+    """
+    # 
+    P0_P = 1 
+    T0 = 2 
+
+
+class PassageType(Enum):
+    Centrifugal=0
+    Axial=1
